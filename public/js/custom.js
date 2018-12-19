@@ -57,14 +57,14 @@ $(document).ready(function()
 
 	function setHeader()
 	{
-		if($(window).scrollTop() > 91)
-		{
-			header.addClass('scrolled');
-		}
-		else
-		{
-			
-		}
+		// if($(window).scrollTop() > 91)
+		// {
+		// 	header.addClass('scrolled');
+		// }
+		// else
+		// {
+		// 	header.removeClass('scrolled');
+		// }
 	}
 
 	/* 

@@ -3,12 +3,15 @@
         <div class="row">
             <div class="col">
                 <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
-                    <div class="logo"><a href="#">Lab<span>Scheduling</span></a></div>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <div class="logo"><a href="{{route('schedule')}}">Lab<span>Scheduling</span></a></div>
+                    @else
+                        <div class="logo"><a href="{{url('/')}}">Lab<span>Scheduling</span></a></div>
+                    @endif
                     <nav class="main_nav ml-auto mr-auto">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+
+
                         </ul>
                     </nav>
                     <div class="log_reg">
@@ -35,7 +38,9 @@
                                             @csrf
                                         </form>
                                     </div>
+
                                 </li>
+
                             @endguest
                         </div>
                     </div>

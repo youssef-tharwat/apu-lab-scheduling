@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Event;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Notifications\Reminder;
+
 
 
 class ScheduleController extends Controller
@@ -47,6 +51,9 @@ class ScheduleController extends Controller
                     'start_date' => $request->start,
                     'end_date' => $request->end,
                 ]);
+
+                Notification::route('mail', Auth::user()->email)
+                    ->notify(new Reminder($request->lab, $request->start, $request->end, $request->eventName));
 
                 return response()->json(array("larger" => false));
 
